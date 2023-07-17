@@ -1,0 +1,43 @@
+table{
+    width: 100%;
+}
+.bgcolor {
+    background-color:#2865df;
+    font-size: medium;
+    color: white;
+
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* .header-container h2 {
+    margin: 0;
+  } */
+  
+  .header-container button {
+    margin-left: 10px;
+  }
+
+  .right-align {
+    position: relative;
+
+  }
+
+  .add-user-button {
+    margin-left: 0%;
+    margin-left: 10px;
+
+  }
+  .passed-status {
+    color: green; /* Set the color for the "Passed" status */
+  }
+  
+  .failed-status {
+    color: red; /* Set the color for the "Failed" status */
+  }
+  
+  
+  

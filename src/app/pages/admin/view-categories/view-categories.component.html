@@ -1,0 +1,27 @@
+<mat-card class="mt20">
+  <h1>All Categories</h1>
+  <mat-list> 
+     <mat-list-item   *ngFor="let c of categories" (click)="viewQuiz(c.cid)">
+      <mat-icon mat-list-icon>category</mat-icon>
+      
+      <!-- <div mat-line>{{c.cid}}</div> -->
+      <div mat-line>{{ c.title }}</div>
+      <div mat-line>{{ c.description }}</div>
+      <mat-divider></mat-divider>
+      <!-- <button [routerLink]="'/admin/categories/' + c.cid" mat-mini-fab color="primary" class="my-space">
+                <mat-icon>quiz</mat-icon>
+      </button> -->
+      <button mat-mini-fab color="primary"  (click)="deleteCategory(c.cid); $event.stopPropagation()" class="my-space">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+  
+    </mat-list-item>
+  </mat-list>
+
+  <div class="container text-center mt20">
+    <button routerLink="/admin/add-category" mat-raised-button color="primary">
+      Add New Category
+    </button>
+  </div>
+</mat-card>
+<!-- [routerLink]="'/categories/' + c.cid" -->

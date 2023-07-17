@@ -1,0 +1,27 @@
+.left-button{
+    margin-left: 80%;
+}
+table{
+    width: 100%;
+}
+.bgcolor {
+    background-color:#4359d8;
+    font-size: large;
+
+}
+.form-row {
+    margin-bottom: 10px;
+
+}
+  
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+  
+.left-button {
+    margin-left: 20px;
+  }
+  .full-width {
+    width: 100%; 
+  }

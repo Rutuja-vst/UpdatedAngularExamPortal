@@ -1,0 +1,32 @@
+.exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .exam-table th, .exam-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .exam-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: large;
+  }
+  
+  .exam-table td {
+    background-color: #fff;
+  }
+  
+  .exam-table tr:last-child td {
+    border-bottom: none;
+  }
+  .passed-status {
+    color: green; /* Set the color for the "Passed" status */
+  }
+  
+  .failed-status {
+    color: red; /* Set the color for the "Failed" status */
+  }

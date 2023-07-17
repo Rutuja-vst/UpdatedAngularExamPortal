@@ -1,0 +1,12 @@
+.w100 {
+    width: 100%;
+  }
+  .button {
+    margin-right: 10px; 
+    margin-left: 10px;
+  }
+  .right-button{
+    position: fixed;
+  bottom: 10px;
+  right: 10px;
+  }

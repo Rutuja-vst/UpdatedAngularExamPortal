@@ -1,0 +1,102 @@
+
+<mat-card class="mt20 w100">
+  <div >
+    <h2>Users Data!</h2>
+    <mat-form-field >
+      <input  matInput appearance="outline" placeholder="Search" (keyup)="applyFilter($event)" #input >
+    </mat-form-field>
+
+    <button type="button" mat-raised-button color="primary" (click)="addUserPopup()"class="add-user-button" >
+    + Add User
+    </button>
+
+    <button type="button" mat-raised-button color="primary" routerLink="/admin/upload-sheet" class="right-align">Import User</button>
+  </div>
+</mat-card>
+<br/>
+
+<div class="mt20 w100">
+<!-- users -->
+<table mat-table [dataSource]="users" >
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> ID </th>
+    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+  </ng-container>
+
+  <!-- userName Column -->
+  <ng-container matColumnDef="userName">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor" font color="white
+    "> Username </th>
+    <td mat-cell *matCellDef="let element"> {{ element.username }} </td>
+  </ng-container>
+
+  <!-- firstName Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> Firstname </th>
+    <td mat-cell *matCellDef="let element"> {{ element.firstName }} </td>
+  </ng-container>
+
+  <!-- LastName Column -->
+  <!-- <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> Lastname </th>
+    <td mat-cell *matCellDef="let element"> {{ element.lastName }} </td>
+  </ng-container> -->
+  
+
+  <!-- email Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email </th>
+    <td mat-cell *matCellDef="let element"> {{ element.email }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="marks">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor">Score</th>
+    <td mat-cell *matCellDef="let element"> {{ element.marks }} </td>
+  </ng-container>
+
+  <!-- Phone Column -->
+  <!-- <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> Phone </th>
+    <td mat-cell *matCellDef="let element"> {{ element.phone }} </td>
+  </ng-container> -->
+  <ng-container matColumnDef="assignedQuiz">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> Quiz </th>
+    <td mat-cell *matCellDef="let element"> {{ element.assignedQuiz }} </td>
+  </ng-container>
+
+  <!--update Button Column -->
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor"> Actions</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary" (click)="updateUserPopup(element.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteUser(element.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  
+  <!-- Add User Status Column -->
+<ng-container matColumnDef="status">
+  <th mat-header-cell *matHeaderCellDef class="bgcolor"> Status </th>
+  <td mat-cell *matCellDef="let element">
+    <span *ngIf="element.marks >= (passThreshold *100 ); else failedStatus" class="passed-status">Passed</span>
+    <ng-template #failedStatus ><span class="failed-status">Failed</span></ng-template>
+  </td>
+</ng-container>
+
+
+  <!-- Delete Button Column -->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef class="bgcolor">  </th>
+    <td mat-cell *matCellDef="let element">
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openUserExamDetails(row.id)"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5,7,10,20]" showFirstLastButton></mat-paginator>
+</div>

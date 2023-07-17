@@ -1,0 +1,23 @@
+<mat-card>
+    <h1>Upload Excel Sheet Here!!</h1>
+  </mat-card>
+  
+  <mat-card>
+    <input type="file" (change)="onFileChange($event)">
+    <p>Click here to select the file!</p>
+  </mat-card>
+  
+  <mat-card>
+    <table>
+      <tbody>
+        <tr *ngFor="let row of userdata">
+          <td *ngFor="let cell of row">
+            {{ cell }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button mat-raised-button color="primary" (click)="uploadFile()">Upload file</button>
+  </mat-card>
+  

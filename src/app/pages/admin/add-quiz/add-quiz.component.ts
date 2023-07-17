@@ -33,6 +33,7 @@ export class AddQuizComponent implements OnInit {
   ngOnInit(): void {
     this._cat.categories().subscribe(
       (data: any) => {
+        
         //categories load
         this.categories = data;
         // console.log(this.categories);

@@ -26,6 +26,12 @@
   .passed-status {
     color: green; /* Set the color for the "Passed" status */
   }
+
+  .table-container {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
+  
   
   .failed-status {
     color: red; /* Set the color for the "Failed" status */

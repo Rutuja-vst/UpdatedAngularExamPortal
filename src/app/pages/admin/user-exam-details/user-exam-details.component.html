@@ -1,6 +1,11 @@
-<h1>Attempted Exam Details of {{Id}}</h1>
+<div class="table-container">
 
-<table mat-table [dataSource]="userExamDetails" class="exam-table">
+<h1>Attempted Exam Details of user with ID: {{Id}}</h1>
+<mat-form-field appearance="outline" >
+  <input  matInput  placeholder="Search" (keyup)="applyFilter($event)" #input >
+</mat-form-field>
+
+<table mat-table [dataSource]="filteredUserExamDetails" class="exam-table">
   <ng-container matColumnDef="quizName">
     <th mat-header-cell *matHeaderCellDef>Quiz Name</th>
     <td mat-cell *matCellDef="let exam">{{ exam.quizName }}</td>
@@ -22,10 +27,12 @@
 
 
   <ng-container matColumnDef="attemptDate">
-    <th mat-header-cell *matHeaderCellDef>Date & Time</th>
+    <th mat-header-cell *matHeaderCellDef>Date & Time</th>  
     <td mat-cell *matCellDef="let exam">{{ exam.attemptDate }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let exam; columns: displayedColumns"></tr>
 </table>
+</div>
+

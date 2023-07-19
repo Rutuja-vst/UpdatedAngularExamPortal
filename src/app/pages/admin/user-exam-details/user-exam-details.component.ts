@@ -14,6 +14,7 @@ export class UserExamDetailsComponent implements OnInit {
   userId: number;
   userName: string;
   passThreshold: number = 0.06;
+  filteredUserExamDetails: any ;
 
 
 
@@ -32,10 +33,33 @@ export class UserExamDetailsComponent implements OnInit {
 
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  
+    if (filterValue === 'passed') {
+      this.filteredUserExamDetails = this.userExamDetails.filter((exam: any) =>
+        exam.marks >= this.passThreshold * 100
+      );
+    } else if (filterValue === 'failed') {
+      this.filteredUserExamDetails = this.userExamDetails.filter((exam: any) =>
+        exam.marks < this.passThreshold * 100
+      );
+    } else {
+      this.filteredUserExamDetails = this.userExamDetails.filter((exam: any) =>
+        exam.quizName.toLowerCase().includes(filterValue)
+      );
+    }
+  }
+  
+  
+
+
   fetchUserExamDetails(userId: number) {
     this.examData.getUserExamDetails(userId).subscribe(
       (data) => {
         this.userExamDetails = data;
+        this.filteredUserExamDetails = data; // Assign the data to filteredUserExamDetails as well
+
       },
       (error) => {
         console.error('Failed to fetch user exam details:', error);

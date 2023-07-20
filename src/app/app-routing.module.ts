@@ -25,6 +25,7 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
 import { ViewCategoryQuizComponent } from './pages/admin/view-category-quiz/view-category-quiz.component';
 import { UpdateUserComponent } from './pages/admin/update-user/update-user.component';
 import { UploadsheetComponent } from './pages/admin/uploadsheet/uploadsheet.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 
 const routes: Routes = [
   {
@@ -103,6 +104,10 @@ const routes: Routes = [
         path:'upload-sheet',
         component: UploadsheetComponent
       },
+       {
+         path:'category/:cid',
+          component:UpdateCategoryComponent
+       }
     ],
   },
   {

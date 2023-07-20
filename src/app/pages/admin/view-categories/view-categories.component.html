@@ -8,10 +8,10 @@
       <div mat-line>{{ c.title }}</div>
       <div mat-line>{{ c.description }}</div>
       <mat-divider></mat-divider>
-      <!-- <button [routerLink]="'/admin/categories/' + c.cid" mat-mini-fab color="primary" class="my-space">
-                <mat-icon>quiz</mat-icon>
-      </button> -->
-      <button mat-mini-fab color="primary"  (click)="deleteCategory(c.cid); $event.stopPropagation()" class="my-space">
+      <button [routerLink]="'/admin/category/' + c.cid" mat-mini-fab color="primary" class="my-space" (click)=" $event.stopPropagation()">
+                <mat-icon>edit</mat-icon>
+      </button>
+      <button  mat-mini-fab color="primary"  (click)="deleteCategory(c.cid); $event.stopPropagation()" class="my-space">
         <mat-icon>delete_outline</mat-icon>
       </button>
   

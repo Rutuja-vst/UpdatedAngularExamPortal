@@ -56,6 +56,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { VerifyOTPComponent } from './pages/verify-otp/verify-otp.component';
 import { SetNewPasswordComponent } from './pages/set-new-password/set-new-password.component';
 import { UserExamDetailsComponent } from './pages/admin/user-exam-details/user-exam-details.component';
+import { UpdateCategoryComponent } from './pages/admin/update-category/update-category.component';
 // import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -94,6 +95,7 @@ import { UserExamDetailsComponent } from './pages/admin/user-exam-details/user-e
     VerifyOTPComponent,
     SetNewPasswordComponent,
     UserExamDetailsComponent,
+    UpdateCategoryComponent,
 
   ],
   imports: [

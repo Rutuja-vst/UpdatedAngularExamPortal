@@ -1,9 +1,9 @@
-
 import { Component, OnInit,Inject  } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Validators } from '@angular/forms';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class AddUserComponent implements OnInit {
 
   formSubmit() {
     console.log(this.user);
-    if (this.user.username == '' || this.user.username == null) {
+    if (this.user.username == '' || this.user.username == null ) {
       // alert('User is required !!');
       this.snack.open('Username is required !! ', '', {
         duration: 3000,
@@ -43,6 +43,12 @@ export class AddUserComponent implements OnInit {
     if (this.user.password == '' || this.user.password == null) {
       // alert('User is required !!');
       this.snack.open('Password is required !! ', '', {
+        duration: 3000,
+      });
+      return;
+    }
+    if (this.user.firstName == '' || this.user.firstName == null ) {
+      this.snack.open('Firstname is required !! ', '', {
         duration: 3000,
       });
       return;
@@ -68,6 +74,4 @@ export class AddUserComponent implements OnInit {
       }
     );
   }
-
-  //this.user
 }

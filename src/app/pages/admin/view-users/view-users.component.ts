@@ -113,16 +113,18 @@ export class ViewUsersComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
 
     this.users.filter = filterValue;
-    // console.log(this.users.filter);
+    // console.log(filterValue);
     if (filterValue === 'passed') {
       this.filteredUsers = this.users.data.filter(user => user.marks >= (this.passThreshold * 100));
-      console.log(this.filteredUsers);
+      this.users.filter =this.filteredUsers ;
+
     } else if (filterValue === 'failed') {
       this.filteredUsers = this.users.data.filter(user => user.marks < (this.passThreshold * 100));
     } else {
       this.filteredUsers = this.users.data;
 
     }
+    
    this.users.paginator.firstPage();
 
     // console.log(this.users.filter);
@@ -148,9 +150,8 @@ export class ViewUsersComponent implements OnInit {
     let element = document.getElementById('excel-table');
   
     let tableHeaders = Array.from(element.getElementsByTagName('th'));
-    // console.log(tableHeaders);
     tableHeaders.pop();
-    // console.log(tableHeaders);
+  // console.log(tableHeaders);
     let tableRows = Array.from(element.getElementsByTagName('tr'));
     tableRows.forEach((row) => {
       let lastCell = Array.from(row.getElementsByTagName('td')).pop();

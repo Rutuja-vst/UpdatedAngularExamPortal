@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import baseUrl from '../../../services/helper';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -40,7 +40,7 @@ export class UploadsheetComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.append('file', this.file);
 
-    this._http.post('http://localhost:8080/user/userdata/uploadfile', formData).subscribe(
+    this._http.post(`${baseUrl}/user/userdata/uploadfile`, formData).subscribe(
       (data) => {
         // Success
         console.log(data);

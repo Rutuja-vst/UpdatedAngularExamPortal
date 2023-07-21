@@ -33,12 +33,12 @@ export class UpdateUserComponent implements OnInit {
   ngOnInit(): void {
      
       this.id=this.data.id;
-      console.log(this.id);
+      // console.log(this.id);
      
     this._user.getuser(this.id).subscribe(
       (data: any) => {
         this.user = data;
-        console.log(this.user);
+        // console.log(this.user);
         // alert(this.user.userName)
 
       },
@@ -60,7 +60,7 @@ export class UpdateUserComponent implements OnInit {
 
   // //update form submit
   public updateUser() {
-    console.log(this.user);
+    // console.log(this.user);
     this.userData.id=this.user.id;
     this.userData.username=this.user.username;
     this.userData.firstName=this.user.firstName;
@@ -68,7 +68,7 @@ export class UpdateUserComponent implements OnInit {
     this.userData.email=this.user.email;
     this.userData.phone=this.user.phone;
     this.userData.password=this.user.password;
-    console.log(this.userData)
+    // console.log(this.userData)
 
     this._user.updateUser(this.userData).subscribe((data)=>{
       Swal.fire('Success ', 'USERDATA updated.', 'success')

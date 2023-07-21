@@ -16,10 +16,7 @@ category:any;
       private _category: CategoryService,
       private _router: Router,
 
-    ) { 
-
-    
-  }
+    ) { }
 
   ngOnInit(): void {
     this.cid = this._route.snapshot.params.qid;
@@ -36,7 +33,7 @@ category:any;
   }
 
   public updateCategory(){
-    this._category.updateCategory(this.category.subscribe(
+    this._category.updateCategory(this.category).subscribe(
       (data) => {
         Swal.fire('Success !!', 'category updated', 'success').then((e) => {
           this._router.navigate(['/admin/categories']);
@@ -46,6 +43,6 @@ category:any;
         Swal.fire('Error', 'error in updating quiz', 'error');
         console.log(error);
       }
-    ));
+    );
   }
 }

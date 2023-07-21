@@ -1,2 +1,2 @@
-let baseUrl = 'http://192.168.0.243:8111';
+let baseUrl = 'http://localhost:8080';
 export default baseUrl;
